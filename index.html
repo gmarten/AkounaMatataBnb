@@ -9,7 +9,7 @@
         <meta charset="utf-8">
         <meta name="viewport" content="width=device-width, initial-scale=1">
         <script type="text/javascript" src="http://cdnjs.cloudflare.com/ajax/libs/jquery/2.0.3/jquery.min.js"></script>
-        <script type="text/javascript" src="http://netdna.bootstrapcdn.com/bootstrap/3.3.2/js/bootstrap.min.js"></script>
+        <script type="text/javascript" src="http://netdna.bootstrapcdn.com/bootstrap/3.3.4/js/bootstrap.min.js"></script>
         <link href="http://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.3.0/css/font-awesome.min.css"
         rel="stylesheet" type="text/css">
         <link href="http://fonts.googleapis.com/css?family=Tangerine:400,700"
@@ -17,13 +17,15 @@
         <link href="http://fonts.googleapis.com/css?family=Nunito:300" rel="stylesheet"
         type="text/css">
         <link rel="stylesheet" href="assets/css/style.css">
+        <script type="text/javascript" src="assets/js/common.js"></script>
+        <script type="text/javascript" src="assets/js/index.js"></script>
     </head>
     
-    <body style="background-image: url(assets/img/cheverny-chateau.jpg);">
+    <body style="background-image: url(assets/img/body-background.jpg);">
         <!-- header -->
         <div id="header" class="section">
-            <div class="container-fluid" id="wrapper" style="background-image: url(assets/img/container-bg.png?922006);">
-                <div class="container-fluid" id="header-wrap">
+            <div class="container-fluid" id="header-wrapper" style="background-image: url(assets/img/container-bg.png?922006);">
+                <div class="container-fluid">
                     <div class="container-fluid">
                         <div class="row-fluid">
                             <div class="col-md-4 col-xs-12">
@@ -73,8 +75,9 @@
         </div>
         <!-- end header -->
         <!-- content -->
-        <div id="content" class="section">
-            <div class="container-fluid" id="wrapper" style="background-image: url(assets/img/container-bg.png?922006);">
+        <div class="section" id="content">
+            <div class="container-fluid" style="background-image: url(assets/img/container-bg.png?922006);"
+            id="content-wrapper">
                 <div class="row-fluid">
                     <div class="col-md-12">
                         <div class="top-divider" style="background-image: url(assets/img/divider.png);"></div>
@@ -82,16 +85,20 @@
                 </div>
                 <div class="row-fluid">
                     <div class="col-md-4">
-                        <img src="assets/img/07akouna-matataa-event-onboard-instyle-Eternit1.jpg"
-                        class="img-responsive">
+                        <a data-id="img_main_left" class="imageUploadFilename" href="#" id="img_main_left">
+                          	<img class="img-responsive imagedropshadow" id="id_img_main_left" src="assets/img/img_main_left.png">
+                      	</a>
                     </div>
                     <div class="col-md-4">
-                        <img src="assets/img/akouna-matataa-event-onboard-instyle-anniversaire-product-launch1.jpg"
-                        class="img-responsive">
+                        <a href="#" data-id="img_main_center" class="imageUploadFilename" id="img_main_center">
+                          	<img src="assets/img/img_main_center.png" class="img-responsive imagedropshadow" id="id_img_main_center">
+                      	</a>
                     </div>
                     <div class="col-md-4">
-                        <img src="assets/img/akouna-matataa-event-onboard-instyle-Continental.jpg"
-                        class="img-responsive">
+                        <a class="imageUploadFilename" data-id="img_main_right" id="img_main_right"
+                        href="#">
+                        	<img src="assets/img/img_main_right.png" class="img-responsive imagedropshadow" id="id_img_main_right">
+                      	</a>
                     </div>
                 </div>
                 <div class="row-fluid">
@@ -100,14 +107,82 @@
                     </div>
                 </div>
                 <div class="row-fluid">
+                    <div class="col-md-12 text-right">
+                        <a href="#" class="textEditUpdate" data-id="text1" id="text1">
+                        	<img src="assets/img/edit.png" class="icon">
+                        </a>
+                    </div>
                     <div class="col-md-12">
-                        <p>Nous vous recevrons avec plaisir dans un de nos trois chambres à thème
-                            avec salle de bains ; Un salon calme, une cuisine, une terrasse et un deck
-                            sont également à votre disposition.</p>
+                        <p id="id_text1"></p>
                     </div>
                 </div>
             </div>
-            <!-- end content -->
+        </div>
+        <!-- end content -->
+        <!-- modal -->
+        <div id="modalImageUpload" class="modal fade" tabindex="-1" role="dialog"
+        aria-labelledby="modalImageUploadLabel" aria-hidden="true">
+            <div class="modal-dialog">
+                <div class="modal-content">
+                    <div class="modal-header">
+                        <button type="button" class="close" data-dismiss="modal" aria-hidden="true">×</button>
+                        <h4 class="modal-title">Upload image...</h4>
+                    </div>
+                    <div class="modal-body">
+                        <img src="assets/img/placeholder.gif" class="img-responsive" id="previewing">
+                        <br>
+                        <form id="form-uploadimage" action="" method="post" enctype="multipart/form-data">
+                            <div class="btn btn-default btn-file">Choose an image
+                                <input type="file" name="file" id="uploadimage-file" required="">
+                                <input type="hidden" name="filename" id="uploadimage-filename">
+                                <input type="hidden" name="maxfilesize" value="1">
+                            </div>
+                        </form>
+                    </div>
+                    <div class="modal-footer">
+                        <div class="row">
+                            <div class="col-md-6">
+                                <span id="loadinguploadimage">Saving..</span>
+                                <span id="messageuploadimage"></span>
+                            </div>
+                            <div class="col-md-6">
+                                <a class="btn btn-default" data-dismiss="modal">Close</a>
+                                <a class="btn btn-primary" id="modalImageUploadSubmit">Save changes</a>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <!-- end modal -->
+        <!-- modal -->
+        <div id="modalTextEdit" class="modal fade" tabindex="-1" role="dialog"
+        aria-labelledby="modalTextEditLabel" aria-hidden="true">
+            <div class="modal-dialog">
+                <div class="modal-content">
+                    <div class="modal-header">
+                        <button type="button" class="close" data-dismiss="modal" aria-hidden="true">×</button>
+                        <h4 class="modal-title">Edit content...</h4>
+                    </div>
+                    <div class="modal-body">
+                        <form id="form-textedit" action="" method="post">
+                            <input type="hidden" id="textedit-textid" name="textedit-textid">
+                            <textarea name="textcontent" id="textedit-textcontent"></textarea>
+                        </form>
+                    </div>
+                    <div class="modal-footer">
+                        <div class="row">
+                            <div class="col-md-6">
+                                <span id="loadingtextedit">Saving..</span>
+                            </div>
+                            <div class="col-md-6">
+                                <a class="btn btn-default" data-dismiss="modal">Close</a>
+                                <a class="btn btn-primary" id="modalTextEditSubmit">Save changes</a>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
         </div>
     </body>
 
