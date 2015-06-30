@@ -8,7 +8,7 @@ if(isset($_FILES["file"]["type"]))
     $file_extension = end($temporary);
     if ($file_extension != ""){
         if ((($_FILES["file"]["type"] == "image/png") || ($_FILES["file"]["type"] == "image/jpg") || ($_FILES["file"]["type"] == "image/jpeg") || ($_FILES["file"]["type"] == "image/gif")
-            ) && ($_FILES["file"]["size"] < ($maxfilesize * 1000000))//Approx. 1Mb files can be uploaded.
+            ) && ($_FILES["file"]["size"] < ($maxfilesize * 5000000))//Approx. 5Mb files can be uploaded.
             && in_array($file_extension, $validextensions)) {
             if ($_FILES["file"]["error"] > 0)
             {

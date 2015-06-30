@@ -6,6 +6,9 @@ $(document).ready(function (e) {
     $('#loadinguploadimage').hide();
     $('#loadingtextedit').hide();
 
+    // script that corrects background image fixed when mobile device
+    var hgt = $(window).height();
+    $("#main").css("height", hgt);
 
     // EVENTS //
     // Resets all form values
@@ -46,7 +49,7 @@ $(document).ready(function (e) {
                 $("#loadinguploadimage").hide();
                 if (data == "success"){
                     //noinspection JSUnresolvedFunction
-                    $("#id_"+ $("#uploadimage-filename").val()).attr("src", $("#id_"+ $("#uploadimage-filename").val()).attr("src") + "?" + Math.random());
+                    $("#"+ $("#uploadimage-filename").val()).attr("src", $("#"+ $("#uploadimage-filename").val()).attr("src") + "?" + Math.random());
                     $('#modalImageUpload').modal('toggle');
                 }
                 else{
