@@ -22,24 +22,24 @@
         <script src="ckeditor/ckeditor.js"></script>
     </head>
     
-    <body style="background-image: url(assets/img/body-background.jpg);">
+    <body id="main" style="background-image: url(assets/img/body-background.jpg);">
         <!-- Start Open Web Analytics Tracker -->
         <script type="text/javascript">
             //<![CDATA[
-                                    var owa_baseUrl = 'http://decobroq.byethost11.com/owa/';
-                                    var owa_cmds = owa_cmds || [];
-                                    owa_cmds.push(['setSiteId', 'fa7cffc73273f97f56333dddc648e448']);
-                                    owa_cmds.push(['trackPageView']);
-                                    owa_cmds.push(['trackClicks']);
-                                    owa_cmds.push(['trackDomStream']);
-                                
-                                    (function() {
-                                        var _owa = document.createElement('script'); _owa.type = 'text/javascript'; _owa.async = true;
-                                        owa_baseUrl = ('https:' == document.location.protocol ? window.owa_baseSecUrl || owa_baseUrl.replace(/http:/, 'https:') : owa_baseUrl );
-                                        _owa.src = owa_baseUrl + 'modules/base/js/owa.tracker-combined-min.js';
-                                        var _owa_s = document.getElementsByTagName('script')[0]; _owa_s.parentNode.insertBefore(_owa, _owa_s);
-                                    }());
-                                    //]]>
+                                            var owa_baseUrl = 'http://decobroq.byethost11.com/owa/';
+                                            var owa_cmds = owa_cmds || [];
+                                            owa_cmds.push(['setSiteId', 'fa7cffc73273f97f56333dddc648e448']);
+                                            owa_cmds.push(['trackPageView']);
+                                            owa_cmds.push(['trackClicks']);
+                                            owa_cmds.push(['trackDomStream']);
+                                        
+                                            (function() {
+                                                var _owa = document.createElement('script'); _owa.type = 'text/javascript'; _owa.async = true;
+                                                owa_baseUrl = ('https:' == document.location.protocol ? window.owa_baseSecUrl || owa_baseUrl.replace(/http:/, 'https:') : owa_baseUrl );
+                                                _owa.src = owa_baseUrl + 'modules/base/js/owa.tracker-combined-min.js';
+                                                var _owa_s = document.getElementsByTagName('script')[0]; _owa_s.parentNode.insertBefore(_owa, _owa_s);
+                                            }());
+                                            //]]>
         </script>
         <!-- End Open Web Analytics Code -->
         <!-- header -->
@@ -105,20 +105,16 @@
                 </div>
                 <div class="row-fluid">
                     <div class="col-md-4">
-                        <a data-id="img_main_left" class="imageUploadFilename" href="#" id="img_main_left">
-              <img class="img-responsive imagedropshadow" id="id_img_main_left" src="assets/img/img_main_left.png">
-            </a>
+                        <img data-id="img_main_left" src="assets/img/img_main_left.png" class="img-responsive imagedropshadow imageUploadFilename"
+                        id="img_main_left">
                     </div>
                     <div class="col-md-4">
-                        <a href="#" data-id="img_main_center" class="imageUploadFilename" id="img_main_center">
-              <img src="assets/img/img_main_center.png" class="img-responsive imagedropshadow" id="id_img_main_center">
-            </a>
+                        <img data-id="img_main_center" src="assets/img/img_main_center.png" class="img-responsive imagedropshadow imageUploadFilename"
+                        id="img_main_center">
                     </div>
                     <div class="col-md-4">
-                        <a class="imageUploadFilename" data-id="img_main_right" id="img_main_right"
-                        href="#">
-              <img src="assets/img/img_main_right.png" class="img-responsive imagedropshadow" id="id_img_main_right">
-            </a>
+                        <img data-id="img_main_right" src="assets/img/img_main_right.png" class="img-responsive imagedropshadow imageUploadFilename"
+                        id="img_main_right">
                     </div>
                 </div>
                 <div class="row-fluid">
