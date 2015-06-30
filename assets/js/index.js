@@ -11,14 +11,20 @@ $(document).ready(function (e) {
     // Resets all form values
     $('#modalImageUpload').on('hidden.bs.modal', function () {
         $("#messageuploadimage").empty();
-        $("#loadinguploadimage").hide();
         $("form").each(function(){
             this.reset();
         });
         $("#previewing").attr("src", "/assets/img/placeholder.gif");
-    })
+    });
+
     $('#modalTextEdit').on('hidden.bs.modal', function () {
+        var name;
+
         $("#loadingtextedit").hide();
+        for(name in CKEDITOR.instances)
+        {
+            CKEDITOR.instances[name].destroy()
+        }
     })
 
     // Functions to submit the image upload
@@ -37,6 +43,7 @@ $(document).ready(function (e) {
             success: function(data)                     // A function to be called if request succeeds
             {
                 $('#loading').hide();
+                $("#loadinguploadimage").hide();
                 if (data == "success"){
                     //noinspection JSUnresolvedFunction
                     $("#id_"+ $("#uploadimage-filename").val()).attr("src", $("#id_"+ $("#uploadimage-filename").val()).attr("src") + "?" + Math.random());
@@ -118,5 +125,6 @@ $(document).ready(function (e) {
         $("#textedit-textcontent").val($("#id_"+ textID).html().replace(/<br>/g,'\r\n'));
         //noinspection JSUnresolvedFunction
         $("#modalTextEdit").modal('toggle');
+        CKEDITOR.appendTo( 'textedit-textcontent', {height:330});
     });
 });

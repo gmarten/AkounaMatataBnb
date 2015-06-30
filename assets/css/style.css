@@ -1,4 +1,4 @@
-@import url("https://fonts.googleapis.com/css?family=inherit|'Nunito-Regular', Nunito, sans-serif");
+@import url('https://fonts.googleapis.com/css?family=inherit|'Nunito-Regular', Nunito, sans-serif');
 /*!
  * Default theme for Pingendo 
  * Homepage: http://pingendo.com  
@@ -21,12 +21,16 @@ body {
 }
 #header {
   margin-top: 20px;
+  padding: 0;
 }
 #header-wrapper {
   padding: 10px 0 0 0;
   background: repeat center left;
   margin: 0px auto;
   width: 70%;
+}
+#content {
+  padding: 0;
 }
 #content-wrapper {
   padding: 0 0 30px 0;
@@ -36,6 +40,7 @@ body {
 }
 #header-contact {
   color: #777777;
+  font-size: 12px;
 }
 #nav {
   font-family: 'Tangerine', cursive;
@@ -74,11 +79,19 @@ body {
 }
 #textedit-textcontent {
   width: 100%;
-  height: 300px;
+  height: 500px;
 }
 .navbar-default .navbar-nav > li > a {
   color: #498559 !important;
   font-size: 28px;
+}
+.navbar-default .navbar-nav > li > a:hover {
+  font-size: 36px;
+  font-weight: bolder;
+}
+.activenavbar {
+  border-bottom: 1px dotted #000;
+  text-decoration: none;
 }
 .top-divider {
   padding-bottom: 80px;
@@ -140,6 +153,9 @@ body {
   -moz-box-shadow: 1px 1px 5px #999;
   -webkit-box-shadow: 1px 1px 5px #999;
   box-shadow: 1px 1px 5px #999;
+}
+.cke_dialog {
+  z-index: 1000000 !important;
 }
 /*! normalize.css v3.0.2 | MIT License | git.io/normalize */
 html {
@@ -6697,12 +6713,12 @@ button.close {
  * Licensed under MIT
 */
 /* Google web fonts support */
-/*@import  url("http://fonts.googleapis.com/css?family=");*/
 /* TODO: webkit need this why ?*/
 html,
 body {
   height: 100%;
 }
+/* text-inverse is deprecated */
 .text-inverse {
   color: #ffffff;
 }
@@ -6733,12 +6749,10 @@ body {
 }
 .section {
   position: relative;
-}
-.section > .container > .row {
-  margin: 35px 0px;
+  padding: 35px 0;
 }
 .section .background-image {
-  z-index: -1;
+  z-index: 0;
   position: absolute;
   top: 0px;
   width: 100%;
@@ -6751,22 +6765,38 @@ body {
 }
 .section-primary {
   background-color: #337cbb !important;
-  color: #ffffff;
-}
-.section-primary .text-inverse {
   color: #808080;
+}
+.section-primary .background-image {
+  opacity: 0.5;
 }
 .section-info {
   background-color: #5bc0de !important;
+  color: #808080;
+}
+.section-info .background-image {
+  opacity: 0.5;
 }
 .section-success {
   background-color: #5cb85c !important;
+  color: #ffffff;
+}
+.section-success .background-image {
+  opacity: 0.5;
 }
 .section-warning {
   background-color: #f0ad4e !important;
+  color: #808080;
+}
+.section-warning .background-image {
+  opacity: 0.5;
 }
 .section-danger {
   background-color: #d9534f !important;
+  color: #808080;
+}
+.section-danger .background-image {
+  opacity: 0.5;
 }
 .cover {
   padding: 30px 15px;
