@@ -1,7 +1,7 @@
 create database if not exists akounamatata;
 create database if not exists owa;
 
-create user "akounamatata"@"localhost" identified by "akounamatata";
+create user "akounamatata"@"localhost" identified by 'akounamatata';
 grant all on akounamatata.* to "akounamatata"@"localhost";
 
 
