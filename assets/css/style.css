@@ -21,7 +21,6 @@
 }
 #header {
   margin-top: 20px;
-  padding: 0;
 }
 #header-wrapper {
   padding: 10px 0 0 0;
@@ -29,7 +28,9 @@
   margin: 0px auto;
   width: 70%;
 }
-#content {
+#content,
+#footer,
+#header {
   padding: 0;
 }
 #content-wrapper {
@@ -162,6 +163,31 @@
 }
 .cke_dialog {
   z-index: 1000000 !important;
+}
+#header-contact a {
+  color: #808080;
+  text-decoration: none;
+}
+.section .container-fluid .row-fluid .no-padding {
+  padding: 0 !important;
+}
+.section .no-padding {
+  padding: 0 !important;
+}
+.flags .flags-be {
+  background-position: -48px -11px;
+}
+.flags {
+  width: 16px;
+  height: 11px;
+  background: url('/assets/img/flags.png') no-repeat;
+  display: inline-block;
+}
+#header-contact .border-bold {
+  border: 2px;
+}
+.dropdown .dropdown-toggle:hover {
+  cursor: pointer;
 }
 /*! normalize.css v3.0.2 | MIT License | git.io/normalize */
 html {
