@@ -1,0 +1,45 @@
+<?php
+	//include all DAO files
+	require_once('class/sql/Connection.class.php');
+	require_once('class/sql/ConnectionFactory.class.php');
+	require_once('class/sql/ConnectionProperty.class.php');
+	require_once('class/sql/QueryExecutor.class.php');
+	require_once('class/sql/Transaction.class.php');
+	require_once('class/sql/SqlQuery.class.php');
+	require_once('class/core/ArrayList.class.php');
+	require_once('class/dao/DAOFactory.class.php');
+ 	
+	require_once('class/dao/EventDAO.class.php');
+	require_once('class/dto/Event.class.php');
+	require_once('class/mysql/EventMySqlDAO.class.php');
+	require_once('class/mysql/ext/EventMySqlExtDAO.class.php');
+	require_once('class/dao/EventImageDAO.class.php');
+	require_once('class/dto/EventImage.class.php');
+	require_once('class/mysql/EventImageMySqlDAO.class.php');
+	require_once('class/mysql/ext/EventImageMySqlExtDAO.class.php');
+	require_once('class/dao/LanguageDAO.class.php');
+	require_once('class/dto/Language.class.php');
+	require_once('class/mysql/LanguageMySqlDAO.class.php');
+	require_once('class/mysql/ext/LanguageMySqlExtDAO.class.php');
+	require_once('class/dao/ParagraphDAO.class.php');
+	require_once('class/dto/Paragraph.class.php');
+	require_once('class/mysql/ParagraphMySqlDAO.class.php');
+	require_once('class/mysql/ext/ParagraphMySqlExtDAO.class.php');
+	require_once('class/dao/TagcontentDAO.class.php');
+	require_once('class/dto/Tagcontent.class.php');
+	require_once('class/mysql/TagcontentMySqlDAO.class.php');
+	require_once('class/mysql/ext/TagcontentMySqlExtDAO.class.php');
+	require_once('class/dao/TagnameDAO.class.php');
+	require_once('class/dto/Tagname.class.php');
+	require_once('class/mysql/TagnameMySqlDAO.class.php');
+	require_once('class/mysql/ext/TagnameMySqlExtDAO.class.php');
+	require_once('class/dao/UserDAO.class.php');
+	require_once('class/dto/User.class.php');
+	require_once('class/mysql/UserMySqlDAO.class.php');
+	require_once('class/mysql/ext/UserMySqlExtDAO.class.php');
+	require_once('class/dao/WebsiteDAO.class.php');
+	require_once('class/dto/Website.class.php');
+	require_once('class/mysql/WebsiteMySqlDAO.class.php');
+	require_once('class/mysql/ext/WebsiteMySqlExtDAO.class.php');
+
+?>

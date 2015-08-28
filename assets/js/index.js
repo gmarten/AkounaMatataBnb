@@ -2,6 +2,7 @@
  * Created by gmarten on 30/04/15.
  */
 $(document).ready(function (e) {
+
     // initializing
     $('#loadinguploadimage').hide();
     $('#loadingtextedit').hide();
@@ -22,8 +23,7 @@ $(document).ready(function (e) {
 
     $('#modalTextEdit').on('hidden.bs.modal', function () {
         var name;
-
-        $("#loadingtextedit").hide();
+        $("#messagetextedit").empty();
         for(name in CKEDITOR.instances)
         {
             CKEDITOR.instances[name].destroy()
@@ -45,7 +45,6 @@ $(document).ready(function (e) {
             processData:false,                          // To send DOMDocument or non processed data file it is set to false
             success: function(data)                     // A function to be called if request succeeds
             {
-                $('#loading').hide();
                 $("#loadinguploadimage").hide();
                 if (data == "success"){
                     //noinspection JSUnresolvedFunction
@@ -61,9 +60,29 @@ $(document).ready(function (e) {
 
     // Functions to submit the text edit
     $("#modalTextEditSubmit").on('click',(function(e) {
-        var formdata = new FormData($('form')[0]);
+        //config
         e.preventDefault();
+        $("#messagetextedit").empty();
         $('#loadingtextedit').show();
+
+        // POST DATA
+        // tagname
+        var formdata = new FormData($('form')[1]);
+
+        // paragraph
+        // retrieve the data from the ckeditor instance
+        for(var i in CKEDITOR.instances) {
+            // write the data to the website div
+            var vEditorData = CKEDITOR.instances[i].getData();
+        }
+        formdata.append("textedit-textcontent", vEditorData);
+
+        //locale
+        //formdata.append("language", locale);
+
+        //website
+
+
         $.ajax({
             url: "/ajax-handlers/text-edit.php",        // Url to which the request is send
             type: "POST",                               // Type of request to be send, called as method
@@ -73,10 +92,15 @@ $(document).ready(function (e) {
             processData:false,                          // To send DOMDocument or non processed data file it is set to false
             success: function(data)                     // A function to be called if request succeeds
             {
-                $('#loading').hide();
-                //noinspection JSUnresolvedFunction
-                $("#"+ $("#textedit-textid").val()).html($("#textedit-textcontent").val().replace(/\r?\n/g,'<br/>'));
-                $('#modalTextEdit').modal('toggle');
+                $('#loadingtextedit').hide();
+                if (data == "success") {
+                    // write the data to the website div
+                    $("#" + $("#textedit-textid").val()).html(vEditorData);//.replace(/\r?\n/g, '<br/>'));
+                    $('#modalTextEdit').modal('toggle');
+                }
+                else{
+                    $("#messagetextedit").html(data);
+                }
             }
         });
     }));
@@ -125,9 +149,7 @@ $(document).ready(function (e) {
     $(document).on("click", ".textEditUpdate", function () {
         var textID = $(this).data('id');
         $("#textedit-textid").val('id_' + textID);
-        $("#textedit-textcontent").val($("#id_"+ textID).html().replace(/<br>/g,'\r\n'));
-        //noinspection JSUnresolvedFunction
+        CKEDITOR.appendTo( 'textedit-textcontent', {height:330}, $("#id_"+ textID).html().replace(/<br>/g,'\r\n'));
         $("#modalTextEdit").modal('toggle');
-        CKEDITOR.appendTo( 'textedit-textcontent', {height:330});
     });
 });

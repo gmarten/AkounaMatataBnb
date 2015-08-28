@@ -1,0 +1,5 @@
+Choose language flags: https://www.flag-sprites.com/
+Create DAO classes from database connection: phpdao
+ - Handle accents in database: mysql_set_charset('utf8', $db_handle);
+ - Insert new functions in extra
+Edit text from web page: CKEDITOR

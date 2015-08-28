@@ -1,7 +1,5 @@
 <?php
-    $textid = $_POST["textID"];
-    $textcontent = $_POST["textcontent"];
+    $textid = $_POST["textedit-textid"];
+    $textcontent = $_POST["textedit-textcontent"];
 
-    //TODO: get the locale
-    //TODO: get the XML file
-    //TODO: store contents to the XML file
+    //TODO: store contents to the database
