@@ -3,7 +3,7 @@
  * Class that operate on table 'tagname'. Database Mysql.
  *
  * @author: http://phpdao.com
- * @date: 2015-08-28 14:11
+ * @date: 2015-08-29 00:48
  */
 class TagnameMySqlDAO implements TagnameDAO{
 
@@ -61,7 +61,7 @@ class TagnameMySqlDAO implements TagnameDAO{
 		$sqlQuery = new SqlQuery($sql);
 		
 		$sqlQuery->set($tagname->name);
-		$sqlQuery->set($tagname->websiteID);
+		$sqlQuery->setNumber($tagname->websiteID);
 		$sqlQuery->setNumber($tagname->eventID);
 
 		$id = $this->executeInsert($sqlQuery);	
@@ -79,7 +79,7 @@ class TagnameMySqlDAO implements TagnameDAO{
 		$sqlQuery = new SqlQuery($sql);
 		
 		$sqlQuery->set($tagname->name);
-		$sqlQuery->set($tagname->websiteID);
+		$sqlQuery->setNumber($tagname->websiteID);
 		$sqlQuery->setNumber($tagname->eventID);
 
 		$sqlQuery->setNumber($tagname->id);
@@ -105,7 +105,7 @@ class TagnameMySqlDAO implements TagnameDAO{
 	public function queryByWebsiteID($value){
 		$sql = 'SELECT * FROM tagname WHERE websiteID = ?';
 		$sqlQuery = new SqlQuery($sql);
-		$sqlQuery->set($value);
+		$sqlQuery->setNumber($value);
 		return $this->getList($sqlQuery);
 	}
 
@@ -127,7 +127,7 @@ class TagnameMySqlDAO implements TagnameDAO{
 	public function deleteByWebsiteID($value){
 		$sql = 'DELETE FROM tagname WHERE websiteID = ?';
 		$sqlQuery = new SqlQuery($sql);
-		$sqlQuery->set($value);
+		$sqlQuery->setNumber($value);
 		return $this->executeUpdate($sqlQuery);
 	}
 

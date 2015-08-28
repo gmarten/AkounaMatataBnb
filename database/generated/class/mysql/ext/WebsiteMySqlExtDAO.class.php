@@ -3,7 +3,7 @@
  * Class that operate on table 'website'. Database Mysql.
  *
  * @author: http://phpdao.com
- * @date: 2015-08-28 14:11
+ * @date: 2015-08-29 00:48
  */
 class WebsiteMySqlExtDAO extends WebsiteMySqlDAO{
 

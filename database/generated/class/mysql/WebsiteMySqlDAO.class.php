@@ -3,7 +3,7 @@
  * Class that operate on table 'website'. Database Mysql.
  *
  * @author: http://phpdao.com
- * @date: 2015-08-28 14:11
+ * @date: 2015-08-29 00:48
  */
 class WebsiteMySqlDAO implements WebsiteDAO{
 
@@ -14,9 +14,9 @@ class WebsiteMySqlDAO implements WebsiteDAO{
 	 * @return WebsiteMySql 
 	 */
 	public function load($id){
-		$sql = 'SELECT * FROM website WHERE name = ?';
+		$sql = 'SELECT * FROM website WHERE id = ?';
 		$sqlQuery = new SqlQuery($sql);
-		$sqlQuery->set($id);
+		$sqlQuery->setNumber($id);
 		return $this->getRow($sqlQuery);
 	}
 
@@ -44,10 +44,10 @@ class WebsiteMySqlDAO implements WebsiteDAO{
  	 * Delete record from table
  	 * @param website primary key
  	 */
-	public function delete($name){
-		$sql = 'DELETE FROM website WHERE name = ?';
+	public function delete($id){
+		$sql = 'DELETE FROM website WHERE id = ?';
 		$sqlQuery = new SqlQuery($sql);
-		$sqlQuery->set($name);
+		$sqlQuery->setNumber($id);
 		return $this->executeUpdate($sqlQuery);
 	}
 	
@@ -57,12 +57,13 @@ class WebsiteMySqlDAO implements WebsiteDAO{
  	 * @param WebsiteMySql website
  	 */
 	public function insert($website){
-		$sql = 'INSERT INTO website () VALUES ()';
+		$sql = 'INSERT INTO website (name) VALUES (?)';
 		$sqlQuery = new SqlQuery($sql);
 		
+		$sqlQuery->set($website->name);
 
 		$id = $this->executeInsert($sqlQuery);	
-		$website->name = $id;
+		$website->id = $id;
 		return $id;
 	}
 	
@@ -72,11 +73,12 @@ class WebsiteMySqlDAO implements WebsiteDAO{
  	 * @param WebsiteMySql website
  	 */
 	public function update($website){
-		$sql = 'UPDATE website SET  WHERE name = ?';
+		$sql = 'UPDATE website SET name = ? WHERE id = ?';
 		$sqlQuery = new SqlQuery($sql);
 		
-
 		$sqlQuery->set($website->name);
+
+		$sqlQuery->setNumber($website->id);
 		return $this->executeUpdate($sqlQuery);
 	}
 
@@ -89,6 +91,20 @@ class WebsiteMySqlDAO implements WebsiteDAO{
 		return $this->executeUpdate($sqlQuery);
 	}
 
+	public function queryByName($value){
+		$sql = 'SELECT * FROM website WHERE name = ?';
+		$sqlQuery = new SqlQuery($sql);
+		$sqlQuery->set($value);
+		return $this->getList($sqlQuery);
+	}
+
+
+	public function deleteByName($value){
+		$sql = 'DELETE FROM website WHERE name = ?';
+		$sqlQuery = new SqlQuery($sql);
+		$sqlQuery->set($value);
+		return $this->executeUpdate($sqlQuery);
+	}
 
 
 	
@@ -100,6 +116,7 @@ class WebsiteMySqlDAO implements WebsiteDAO{
 	protected function readRow($row){
 		$website = new Website();
 		
+		$website->id = $row['id'];
 		$website->name = $row['name'];
 
 		return $website;
@@ -154,11 +171,6 @@ class WebsiteMySqlDAO implements WebsiteDAO{
 	 */
 	protected function executeInsert($sqlQuery){
 		return QueryExecutor::executeInsert($sqlQuery);
-	}
-
-	public function loadTagsByIDAndLanguage($page, $language)
-	{
-		// TODO: Implement loadTagsByIDAndLanguage() method.
 	}
 }
 ?>

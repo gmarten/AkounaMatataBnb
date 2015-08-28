@@ -3,7 +3,7 @@
  * Intreface DAO
  *
  * @author: http://phpdao.com
- * @date: 2015-08-28 14:11
+ * @date: 2015-08-29 00:48
  */
 interface TagnameDAO{
 
@@ -56,6 +56,11 @@ interface TagnameDAO{
 	public function queryByWebsiteID($value);
 
 	public function queryByEventID($value);
+
+
+	public function deleteByName($value);
+
+	public function deleteByWebsiteID($value);
 
 	public function deleteByEventID($value);
 
