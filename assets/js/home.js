@@ -148,8 +148,8 @@ $(document).ready(function (e) {
     });
     $(document).on("click", ".textEditUpdate", function () {
         var textID = $(this).data('id');
-        $("#textedit-textid").val('id_' + textID);
-        CKEDITOR.appendTo( 'textedit-textcontent', {height:330}, $("#id_"+ textID).html().replace(/<br>/g,'\r\n'));
+        $("#textedit-textid").val('content_' + textID);
+        CKEDITOR.appendTo( 'textedit-textcontent', {height:330}, $("#content_"+ textID).html().replace(/<br>/g,'\r\n'));
         $("#modalTextEdit").modal('toggle');
     });
 });
