@@ -18,10 +18,14 @@ switch (count($params)){
             //TODO: go to select language page
         }
         break;
-    case 2:
-        $_SESSION["page"] = $params[1];
     case 1:
         $_SESSION["language"] = $params[0];
+        $_SESSION["page"] = "home";
+        break;
+    case 2:
+        $_SESSION["language"] = $params[0];
+        $_SESSION["page"] = $params[1];
+        break;
 }
 ?>
 <html>
@@ -40,7 +44,7 @@ switch (count($params)){
     <link rel="stylesheet" href="/assets/css/style.css">
     <link rel="stylesheet" href="/assets/css/flags.css">
     <script type="text/javascript" src="/assets/js/common.js"></script>
-    <script type="text/javascript" src="/assets/js/index.js"></script>
+    <script type="text/javascript" src="/assets/js/<?php echo $_SESSION["page"]?>.js"></script>
     <script src="/ckeditor/ckeditor.js"></script>
 </head>
 
@@ -64,5 +68,21 @@ switch (count($params)){
 <!-- End Open Web Analytics Code -->
 
 <!-- header -->
-<?php
-include 'includes/header.php';
+<?php include 'includes/header.php'; ?>
+<!-- end header -->
+
+<!-- content -->
+<?php include 'includes/' . $_SESSION["page"] . '.php'; ?>
+<!-- end content -->
+
+<!-- modal upload image -->
+<?php include 'includes/footer.php'; ?>
+<!-- end content -->
+
+<!-- modal edit text -->
+<?php include 'includes/modalImageUpload.php'; ?>
+<!-- end content -->
+
+<!-- content -->
+<?php include 'includes/modalTextEdit.php'; ?>
+<!-- end content -->

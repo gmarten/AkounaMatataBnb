@@ -17,14 +17,14 @@ class WebsiteMySqlExtDAO extends WebsiteMySqlDAO{
     public function loadTagsByIDAndLanguage($page, $language){
         $sql = 'select tn.name as tagname, tc.content as content
                 from website w, tagname tn, tagcontent tc, language l
-                WHERE w.name=tn.websiteID AND tn.id=tc.tagnameID AND tc.languageID=l.id
+                WHERE w.id=tn.websiteID AND tn.id=tc.tagnameID AND tc.languageID=l.id
                 AND l.locale = ?
                 AND w.name = ?
 
                 UNION
                 select tn.name as tagname, p.content as content
                 from website w, tagname tn, paragraph p, language l
-                WHERE w.name=tn.websiteID AND tn.id=p.tagnameID AND p.languageID=l.id
+                WHERE w.id=tn.websiteID AND tn.id=p.tagnameID AND p.languageID=l.id
                 AND l.locale = ?
                 AND w.name = ?';
 
