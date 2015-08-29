@@ -16,15 +16,21 @@ switch (count($params)){
         if (!isset($_SESSION['language']))
         {
             //TODO: go to select language page
-            $_SESSION["page"] = "home";
             $_SESSION["language"] = "en";
         }
+        $_SESSION["page"] = "home";
         break;
     case 1:
         $_SESSION["language"] = $params[0];
         $_SESSION["page"] = "home";
         break;
     case 2:
+        // check for URL manipulations
+        // verify if the [page].php file exists in "includes" folder
+        if (!file_exists ("includes/" . $params[1] . ".php")){
+            session_unset();
+            header("Location: /");
+        }
         $_SESSION["language"] = $params[0];
         $_SESSION["page"] = $params[1];
         break;
@@ -77,6 +83,7 @@ switch (count($params)){
         <!-- end header -->
 
         <!-- content -->
+        <!-- TODO: check if page exists (for URL manipulation) -->
         <?php include 'includes/' . $_SESSION["page"] . '.php'; ?>
         <!-- end content -->
 
