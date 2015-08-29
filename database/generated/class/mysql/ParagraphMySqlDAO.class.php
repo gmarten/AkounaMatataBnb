@@ -3,7 +3,7 @@
  * Class that operate on table 'paragraph'. Database Mysql.
  *
  * @author: http://phpdao.com
- * @date: 2015-08-29 00:48
+ * @date: 2015-08-29 02:47
  */
 class ParagraphMySqlDAO implements ParagraphDAO{
 
@@ -13,11 +13,11 @@ class ParagraphMySqlDAO implements ParagraphDAO{
 	 * @param String $id primary key
 	 * @return ParagraphMySql 
 	 */
-	public function load($languageID, $tagnameID){
-		$sql = 'SELECT * FROM paragraph WHERE languageID = ?  AND tagnameID = ? ';
+	public function load($tagnameID, $lang){
+		$sql = 'SELECT * FROM paragraph WHERE tagnameID = ?  AND lang = ? ';
 		$sqlQuery = new SqlQuery($sql);
-		$sqlQuery->setNumber($languageID);
 		$sqlQuery->setNumber($tagnameID);
+		$sqlQuery->set($lang);
 
 		return $this->getRow($sqlQuery);
 	}
@@ -46,11 +46,11 @@ class ParagraphMySqlDAO implements ParagraphDAO{
  	 * Delete record from table
  	 * @param paragraph primary key
  	 */
-	public function delete($languageID, $tagnameID){
-		$sql = 'DELETE FROM paragraph WHERE languageID = ?  AND tagnameID = ? ';
+	public function delete($tagnameID, $lang){
+		$sql = 'DELETE FROM paragraph WHERE tagnameID = ?  AND lang = ? ';
 		$sqlQuery = new SqlQuery($sql);
-		$sqlQuery->setNumber($languageID);
 		$sqlQuery->setNumber($tagnameID);
+		$sqlQuery->set($lang);
 
 		return $this->executeUpdate($sqlQuery);
 	}
@@ -61,15 +61,15 @@ class ParagraphMySqlDAO implements ParagraphDAO{
  	 * @param ParagraphMySql paragraph
  	 */
 	public function insert($paragraph){
-		$sql = 'INSERT INTO paragraph (content, languageID, tagnameID) VALUES (?, ?, ?)';
+		$sql = 'INSERT INTO paragraph (content, tagnameID, lang) VALUES (?, ?, ?)';
 		$sqlQuery = new SqlQuery($sql);
 		
 		$sqlQuery->set($paragraph->content);
 
 		
-		$sqlQuery->setNumber($paragraph->languageID);
-
 		$sqlQuery->setNumber($paragraph->tagnameID);
+
+		$sqlQuery->set($paragraph->lang);
 
 		$this->executeInsert($sqlQuery);	
 		//$paragraph->id = $id;
@@ -82,15 +82,15 @@ class ParagraphMySqlDAO implements ParagraphDAO{
  	 * @param ParagraphMySql paragraph
  	 */
 	public function update($paragraph){
-		$sql = 'UPDATE paragraph SET content = ? WHERE languageID = ?  AND tagnameID = ? ';
+		$sql = 'UPDATE paragraph SET content = ? WHERE tagnameID = ?  AND lang = ? ';
 		$sqlQuery = new SqlQuery($sql);
 		
 		$sqlQuery->set($paragraph->content);
 
 		
-		$sqlQuery->setNumber($paragraph->languageID);
-
 		$sqlQuery->setNumber($paragraph->tagnameID);
+
+		$sqlQuery->set($paragraph->lang);
 
 		return $this->executeUpdate($sqlQuery);
 	}
@@ -129,8 +129,8 @@ class ParagraphMySqlDAO implements ParagraphDAO{
 	protected function readRow($row){
 		$paragraph = new Paragraph();
 		
-		$paragraph->languageID = $row['languageID'];
 		$paragraph->tagnameID = $row['tagnameID'];
+		$paragraph->lang = $row['lang'];
 		$paragraph->content = $row['content'];
 
 		return $paragraph;

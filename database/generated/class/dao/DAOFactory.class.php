@@ -15,13 +15,6 @@ class DAOFactory{
 	}
 
 	/**
-	 * @return EventImageDAO
-	 */
-	public static function getEventImageDAO(){
-		return new EventImageMySqlExtDAO();
-	}
-
-	/**
 	 * @return LanguageDAO
 	 */
 	public static function getLanguageDAO(){

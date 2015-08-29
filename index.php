@@ -16,6 +16,8 @@ switch (count($params)){
         if (!isset($_SESSION['language']))
         {
             //TODO: go to select language page
+            $_SESSION["page"] = "home";
+            $_SESSION["language"] = "en";
         }
         break;
     case 1:
@@ -67,22 +69,28 @@ switch (count($params)){
 </script>
 <!-- End Open Web Analytics Code -->
 
-<!-- header -->
-<?php include 'includes/header.php'; ?>
-<!-- end header -->
+<div class="row-fluid">
+    <div class="col-md-1 hidden-sm hidden-xs no-padding"></div>
+    <div class="col-md-10 col-xs-12 no-padding">
+        <!-- header -->
+        <?php include 'includes/header.php'; ?>
+        <!-- end header -->
 
-<!-- content -->
-<?php include 'includes/' . $_SESSION["page"] . '.php'; ?>
-<!-- end content -->
+        <!-- content -->
+        <?php include 'includes/' . $_SESSION["page"] . '.php'; ?>
+        <!-- end content -->
 
-<!-- modal upload image -->
-<?php include 'includes/footer.php'; ?>
-<!-- end content -->
+        <!-- modal upload image -->
+        <?php include 'includes/footer.php'; ?>
+        <!-- end content -->
 
-<!-- modal edit text -->
-<?php include 'includes/modalImageUpload.php'; ?>
-<!-- end content -->
+        <!-- modal edit text -->
+        <?php include 'includes/modalImageUpload.php'; ?>
+        <!-- end content -->
 
-<!-- content -->
-<?php include 'includes/modalTextEdit.php'; ?>
-<!-- end content -->
+        <!-- content -->
+        <?php include 'includes/modalTextEdit.php'; ?>
+        <!-- end content -->
+    </div>
+    <div class="col-md-1 hidden-sm hidden-xs no-padding"></div>
+</div>

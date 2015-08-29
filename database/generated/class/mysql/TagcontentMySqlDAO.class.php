@@ -3,7 +3,7 @@
  * Class that operate on table 'tagcontent'. Database Mysql.
  *
  * @author: http://phpdao.com
- * @date: 2015-08-29 00:48
+ * @date: 2015-08-29 02:47
  */
 class TagcontentMySqlDAO implements TagcontentDAO{
 
@@ -13,11 +13,11 @@ class TagcontentMySqlDAO implements TagcontentDAO{
 	 * @param String $id primary key
 	 * @return TagcontentMySql 
 	 */
-	public function load($languageID, $tagnameID){
-		$sql = 'SELECT * FROM tagcontent WHERE languageID = ?  AND tagnameID = ? ';
+	public function load($tagnameID, $lang){
+		$sql = 'SELECT * FROM tagcontent WHERE tagnameID = ?  AND lang = ? ';
 		$sqlQuery = new SqlQuery($sql);
-		$sqlQuery->setNumber($languageID);
 		$sqlQuery->setNumber($tagnameID);
+		$sqlQuery->setNumber($lang);
 
 		return $this->getRow($sqlQuery);
 	}
@@ -46,11 +46,11 @@ class TagcontentMySqlDAO implements TagcontentDAO{
  	 * Delete record from table
  	 * @param tagcontent primary key
  	 */
-	public function delete($languageID, $tagnameID){
-		$sql = 'DELETE FROM tagcontent WHERE languageID = ?  AND tagnameID = ? ';
+	public function delete($tagnameID, $lang){
+		$sql = 'DELETE FROM tagcontent WHERE tagnameID = ?  AND lang = ? ';
 		$sqlQuery = new SqlQuery($sql);
-		$sqlQuery->setNumber($languageID);
 		$sqlQuery->setNumber($tagnameID);
+		$sqlQuery->setNumber($lang);
 
 		return $this->executeUpdate($sqlQuery);
 	}
@@ -61,15 +61,15 @@ class TagcontentMySqlDAO implements TagcontentDAO{
  	 * @param TagcontentMySql tagcontent
  	 */
 	public function insert($tagcontent){
-		$sql = 'INSERT INTO tagcontent (content, languageID, tagnameID) VALUES (?, ?, ?)';
+		$sql = 'INSERT INTO tagcontent (content, tagnameID, lang) VALUES (?, ?, ?)';
 		$sqlQuery = new SqlQuery($sql);
 		
 		$sqlQuery->set($tagcontent->content);
 
 		
-		$sqlQuery->setNumber($tagcontent->languageID);
-
 		$sqlQuery->setNumber($tagcontent->tagnameID);
+
+		$sqlQuery->setNumber($tagcontent->lang);
 
 		$this->executeInsert($sqlQuery);	
 		//$tagcontent->id = $id;
@@ -82,15 +82,15 @@ class TagcontentMySqlDAO implements TagcontentDAO{
  	 * @param TagcontentMySql tagcontent
  	 */
 	public function update($tagcontent){
-		$sql = 'UPDATE tagcontent SET content = ? WHERE languageID = ?  AND tagnameID = ? ';
+		$sql = 'UPDATE tagcontent SET content = ? WHERE tagnameID = ?  AND lang = ? ';
 		$sqlQuery = new SqlQuery($sql);
 		
 		$sqlQuery->set($tagcontent->content);
 
 		
-		$sqlQuery->setNumber($tagcontent->languageID);
-
 		$sqlQuery->setNumber($tagcontent->tagnameID);
+
+		$sqlQuery->setNumber($tagcontent->lang);
 
 		return $this->executeUpdate($sqlQuery);
 	}
@@ -129,8 +129,8 @@ class TagcontentMySqlDAO implements TagcontentDAO{
 	protected function readRow($row){
 		$tagcontent = new Tagcontent();
 		
-		$tagcontent->languageID = $row['languageID'];
 		$tagcontent->tagnameID = $row['tagnameID'];
+		$tagcontent->lang = $row['lang'];
 		$tagcontent->content = $row['content'];
 
 		return $tagcontent;

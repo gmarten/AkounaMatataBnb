@@ -77,12 +77,6 @@ $(document).ready(function (e) {
         }
         formdata.append("textedit-textcontent", vEditorData);
 
-        //locale
-        //formdata.append("language", locale);
-
-        //website
-
-
         $.ajax({
             url: "/ajax-handlers/text-edit.php",        // Url to which the request is send
             type: "POST",                               // Type of request to be send, called as method
@@ -95,7 +89,7 @@ $(document).ready(function (e) {
                 $('#loadingtextedit').hide();
                 if (data == "success") {
                     // write the data to the website div
-                    $("#" + $("#textedit-textid").val()).html(vEditorData);//.replace(/\r?\n/g, '<br/>'));
+                    $('#' + $("#textedit-textid").val()).html(vEditorData);//.replace(/\r?\n/g, '<br/>'));
                     $('#modalTextEdit').modal('toggle');
                 }
                 else{
@@ -148,8 +142,8 @@ $(document).ready(function (e) {
     });
     $(document).on("click", ".textEditUpdate", function () {
         var textID = $(this).data('id');
-        $("#textedit-textid").val('content_' + textID);
-        CKEDITOR.appendTo( 'textedit-textcontent', {height:330}, $("#content_"+ textID).html().replace(/<br>/g,'\r\n'));
+        $("#textedit-textid").val("paragraph_" + textID);
+        CKEDITOR.appendTo( 'textedit-textcontent', {height:330}, $("#paragraph_"+ textID).html());
         $("#modalTextEdit").modal('toggle');
     });
 });

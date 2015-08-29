@@ -15,6 +15,8 @@
             </div>
             <div class="modal-body">
                 <form id="form-textedit" action="" method="post">
+                    <input type="hidden" id="textedit-language" name="textedit-language" value="<?php echo $_SESSION["language"] ?>">
+                    <input type="hidden" id="textedit-website" name="textedit-website" value="<?php echo $_SESSION["page"] ?>">
                     <input type="hidden" id="textedit-textid" name="textedit-textid">
                     <div name="textedit-textcontent" id="textedit-textcontent"></div>
                 </form>

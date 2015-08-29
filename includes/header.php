@@ -17,33 +17,33 @@ echo "}) \n</script>";
 
 ?>
 <div id="header" class="section">
-    <div class="container-fluid" id="header-wrapper" style="background-image: url(/assets/img/container-bg.png?922006);">
+    <div class="container-fluid transparent" id="header-wrapper" style="background-image: url(/assets/img/container-bg.png?922006);">
         <div class="container-fluid">
             <div class="container-fluid no-padding">
                 <div class="row-fluid">
                     <div class="col-md-4 col-xs-12 no-padding">
                         <a href="/" title="Akouna Matata logo"><img src="/assets/img/home-logo.png" alt="Akouna Matata logo" class="img-responsive"></a>
                     </div>
-                    <div id="header-contact" class="col-md-8 hidden-sm hidden-xs text-right no-padding">
-                <span>Bed &amp; Breakfast, Hogeweg 253, Mechelen 2800 | +32 495 25 53 65 |
-                  <a href="mailto:christina.vandalem@gmail.com">christina.vandalem@gmail.com</a>&nbsp;|
-                    <?php
-                        // include the selected language dropdown menu
-                        switch ($_SESSION["language"]) {
-                            case "nl":
-                                include("includes/nederlands.php");
-                                break;
-                            case "fr":
-                                include("includes/francais.php");
-                                break;
-                            case "de":
-                                include("includes/deutsch.php");
-                                break;
-                            default:
-                                include("includes/english.php");
-                        }
-                    ?>
-                </span>
+                    <div id="header-contact" class="col-md-8 col-xs-12 text-right no-padding">
+                        <span class="hidden-sm hidden-xs">Bed &amp; Breakfast, Hogeweg 253, Mechelen 2800 | +32 495 25 53 65 |
+                            <a href="mailto:christina.vandalem@gmail.com">christina.vandalem@gmail.com</a>&nbsp;|
+                        </span>
+                            <?php
+                                // include the selected language dropdown menu
+                                switch ($_SESSION["language"]) {
+                                    case "nl":
+                                        include("includes/nederlands.php");
+                                        break;
+                                    case "fr":
+                                        include("includes/francais.php");
+                                        break;
+                                    case "de":
+                                        include("includes/deutsch.php");
+                                        break;
+                                    default:
+                                        include("includes/english.php");
+                                }
+                            ?>
                     </div>
                 </div>
             </div>

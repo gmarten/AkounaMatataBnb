@@ -3,7 +3,7 @@
  * Intreface DAO
  *
  * @author: http://phpdao.com
- * @date: 2015-08-29 00:48
+ * @date: 2015-08-29 02:47
  */
 interface ParagraphDAO{
 
@@ -13,7 +13,7 @@ interface ParagraphDAO{
 	 * @param String $id primary key
 	 * @Return Paragraph 
 	 */
-	public function load($languageID, $tagnameID);
+	public function load($tagnameID, $lang);
 
 	/**
 	 * Get all records from table
@@ -30,7 +30,7 @@ interface ParagraphDAO{
  	 * Delete record from table
  	 * @param paragraph primary key
  	 */
-	public function delete($languageID, $tagnameID);
+	public function delete($tagnameID, $lang);
 	
 	/**
  	 * Insert record to table

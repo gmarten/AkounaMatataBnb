@@ -3,7 +3,7 @@
  * Class that operate on table 'language'. Database Mysql.
  *
  * @author: http://phpdao.com
- * @date: 2015-08-29 00:48
+ * @date: 2015-08-29 02:47
  */
 class LanguageMySqlDAO implements LanguageDAO{
 
@@ -14,9 +14,9 @@ class LanguageMySqlDAO implements LanguageDAO{
 	 * @return LanguageMySql 
 	 */
 	public function load($id){
-		$sql = 'SELECT * FROM language WHERE id = ?';
+		$sql = 'SELECT * FROM language WHERE locale = ?';
 		$sqlQuery = new SqlQuery($sql);
-		$sqlQuery->setNumber($id);
+		$sqlQuery->set($id);
 		return $this->getRow($sqlQuery);
 	}
 
@@ -44,10 +44,10 @@ class LanguageMySqlDAO implements LanguageDAO{
  	 * Delete record from table
  	 * @param language primary key
  	 */
-	public function delete($id){
-		$sql = 'DELETE FROM language WHERE id = ?';
+	public function delete($locale){
+		$sql = 'DELETE FROM language WHERE locale = ?';
 		$sqlQuery = new SqlQuery($sql);
-		$sqlQuery->setNumber($id);
+		$sqlQuery->set($locale);
 		return $this->executeUpdate($sqlQuery);
 	}
 	
@@ -57,14 +57,13 @@ class LanguageMySqlDAO implements LanguageDAO{
  	 * @param LanguageMySql language
  	 */
 	public function insert($language){
-		$sql = 'INSERT INTO language (locale, language) VALUES (?, ?)';
+		$sql = 'INSERT INTO language (language) VALUES (?)';
 		$sqlQuery = new SqlQuery($sql);
 		
-		$sqlQuery->set($language->locale);
 		$sqlQuery->set($language->language);
 
 		$id = $this->executeInsert($sqlQuery);	
-		$language->id = $id;
+		$language->locale = $id;
 		return $id;
 	}
 	
@@ -74,13 +73,12 @@ class LanguageMySqlDAO implements LanguageDAO{
  	 * @param LanguageMySql language
  	 */
 	public function update($language){
-		$sql = 'UPDATE language SET locale = ?, language = ? WHERE id = ?';
+		$sql = 'UPDATE language SET language = ? WHERE locale = ?';
 		$sqlQuery = new SqlQuery($sql);
 		
-		$sqlQuery->set($language->locale);
 		$sqlQuery->set($language->language);
 
-		$sqlQuery->setNumber($language->id);
+		$sqlQuery->set($language->locale);
 		return $this->executeUpdate($sqlQuery);
 	}
 
@@ -93,13 +91,6 @@ class LanguageMySqlDAO implements LanguageDAO{
 		return $this->executeUpdate($sqlQuery);
 	}
 
-	public function queryByLocale($value){
-		$sql = 'SELECT * FROM language WHERE locale = ?';
-		$sqlQuery = new SqlQuery($sql);
-		$sqlQuery->set($value);
-		return $this->getList($sqlQuery);
-	}
-
 	public function queryByLanguage($value){
 		$sql = 'SELECT * FROM language WHERE language = ?';
 		$sqlQuery = new SqlQuery($sql);
@@ -107,13 +98,6 @@ class LanguageMySqlDAO implements LanguageDAO{
 		return $this->getList($sqlQuery);
 	}
 
-
-	public function deleteByLocale($value){
-		$sql = 'DELETE FROM language WHERE locale = ?';
-		$sqlQuery = new SqlQuery($sql);
-		$sqlQuery->set($value);
-		return $this->executeUpdate($sqlQuery);
-	}
 
 	public function deleteByLanguage($value){
 		$sql = 'DELETE FROM language WHERE language = ?';
@@ -132,7 +116,6 @@ class LanguageMySqlDAO implements LanguageDAO{
 	protected function readRow($row){
 		$language = new Language();
 		
-		$language->id = $row['id'];
 		$language->locale = $row['locale'];
 		$language->language = $row['language'];
 

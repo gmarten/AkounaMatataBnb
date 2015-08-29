@@ -3,7 +3,7 @@
  * Intreface DAO
  *
  * @author: http://phpdao.com
- * @date: 2015-08-29 00:48
+ * @date: 2015-08-29 02:47
  */
 interface WebsiteDAO{
 
@@ -56,14 +56,6 @@ interface WebsiteDAO{
 
 	public function deleteByName($value);
 
-	/*
-	 * Returns all foreign keys to this row (tags, contents and paragraphs)
-	 *
-	 * @param String page
-	 * @param String language
-	 * @Return Website website
-	 */
-	public function loadTagsByIDAndLanguage($page, $language);
 
 }
 ?>

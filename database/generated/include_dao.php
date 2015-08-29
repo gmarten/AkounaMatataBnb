@@ -13,10 +13,6 @@
 	require_once('class/dto/Event.class.php');
 	require_once('class/mysql/EventMySqlDAO.class.php');
 	require_once('class/mysql/ext/EventMySqlExtDAO.class.php');
-	require_once('class/dao/EventImageDAO.class.php');
-	require_once('class/dto/EventImage.class.php');
-	require_once('class/mysql/EventImageMySqlDAO.class.php');
-	require_once('class/mysql/ext/EventImageMySqlExtDAO.class.php');
 	require_once('class/dao/LanguageDAO.class.php');
 	require_once('class/dto/Language.class.php');
 	require_once('class/mysql/LanguageMySqlDAO.class.php');

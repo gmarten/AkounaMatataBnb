@@ -7,6 +7,19 @@
  */
 class WebsiteMySqlExtDAO extends WebsiteMySqlDAO{
 
+    /**
+     * Get Domain object by name
+     *
+     * @param String $name primary key
+     * @return WebsiteMySql
+     */
+    public function loadByName($name){
+        $sql = 'SELECT * FROM website WHERE name = ?';
+        $sqlQuery = new SqlQuery($sql);
+        $sqlQuery->set($name);
+        return $this->getRow($sqlQuery);
+    }
+
     /*
      * Returns all foreign keys to this row (tags, contents and paragraphs)
      *
@@ -17,14 +30,14 @@ class WebsiteMySqlExtDAO extends WebsiteMySqlDAO{
     public function loadTagsByIDAndLanguage($page, $language){
         $sql = 'select tn.name as tagname, tc.content as content
                 from website w, tagname tn, tagcontent tc, language l
-                WHERE w.id=tn.websiteID AND tn.id=tc.tagnameID AND tc.languageID=l.id
+                WHERE w.id=tn.websiteID AND tn.id=tc.tagnameID AND tc.lang=l.locale
                 AND l.locale = ?
                 AND w.name = ?
 
                 UNION
                 select tn.name as tagname, p.content as content
                 from website w, tagname tn, paragraph p, language l
-                WHERE w.id=tn.websiteID AND tn.id=p.tagnameID AND p.languageID=l.id
+                WHERE w.id=tn.websiteID AND tn.id=p.tagnameID AND p.lang=l.locale
                 AND l.locale = ?
                 AND w.name = ?';
 
@@ -62,7 +75,7 @@ class WebsiteMySqlExtDAO extends WebsiteMySqlDAO{
         $tagname = new Tagname();
 
         $tagname->name = $row['tagname'];
-        $tagname->content = $row['content'];
+        $tagname->content = str_replace("\r\n",'', $row['content']);
 
         return $tagname;
     }

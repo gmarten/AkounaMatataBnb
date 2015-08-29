@@ -3,7 +3,7 @@
  * Intreface DAO
  *
  * @author: http://phpdao.com
- * @date: 2015-08-29 00:48
+ * @date: 2015-08-29 02:47
  */
 interface LanguageDAO{
 
@@ -30,7 +30,7 @@ interface LanguageDAO{
  	 * Delete record from table
  	 * @param language primary key
  	 */
-	public function delete($id);
+	public function delete($locale);
 	
 	/**
  	 * Insert record to table
@@ -51,12 +51,8 @@ interface LanguageDAO{
 	 */
 	public function clean();
 
-	public function queryByLocale($value);
-
 	public function queryByLanguage($value);
 
-
-	public function deleteByLocale($value);
 
 	public function deleteByLanguage($value);
 

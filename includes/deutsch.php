@@ -8,11 +8,11 @@
 ?>
 
 <span class="dropdown border-bold">
-      <a class="dropdown-toggle" id="menu1" type="button" data-toggle="dropdown">
+      <button type="button" class="dropdown-toggle" id="menu1" type="button" data-toggle="dropdown">
           Deutsch
           <span class="flag flag-de"></span>
           <span class="caret"></span>
-      </a>
+      </button>
       <ul class="dropdown-menu" role="menu" aria-labelledby="menu1" style="min-width: 130px;">
           <li role="presentation">
               <a role="menuitem" tabindex="-1" href="/fr/<?php echo $_SESSION["page"] ?>">
