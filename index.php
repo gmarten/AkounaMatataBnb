@@ -25,16 +25,23 @@ switch (count($params)){
         $_SESSION["page"] = "home";
         break;
     case 2:
-        // check for URL manipulations
-        // verify if the [page].php file exists in "includes" folder
-        if (!file_exists ("includes/" . $params[1] . ".php")){
-            session_unset();
-            header("Location: /");
-        }
         $_SESSION["language"] = $params[0];
         $_SESSION["page"] = $params[1];
         break;
 }
+// check for URL manipulations
+// verify if the [page].php file exists in "includes" folder
+if (!file_exists ("includes/" . $_SESSION["page"] . ".php")){
+    session_unset();
+    header("Location: /");
+}
+// verify if the language exists in the database
+$website = DAOFactory::getWebsiteDAO()->loadTagsByIDAndLanguage("header", $_SESSION["language"]);
+if (count($website->tags) == 0){
+    session_unset();
+    header("Location: /");
+}
+
 ?>
 <html>
 <head>
