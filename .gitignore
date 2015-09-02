@@ -1,43 +1,11 @@
 
-.idea/.name
+.idea/*
 
-.idea/encodings.xml
-
-.idea/eulance.iml
-
-.idea/modules.xml
-
-.idea/scopes/scope_settings.xml
-
-.idea/vcs.xml
-
-.idea/workspace.xml
-
-.idea/deployment.xml
-
-.idea/inspectionProfiles/profiles_settings.xml
-
-.idea/inspectionProfiles/Project_Default.xml
-
-.idea/misc.xml
-
-.idea/php.xml
-
-.sass-cache/5efedc3b55b5bffb8cc2f6ff197ea306fad4e980/style.scssc
-
-.idea/AkounaMatataBnb.iml
-
-.sass-cache/93b00352b001cc43886e159bcda08818ce2472cb/_border-radius.scssc
-
-.sass-cache/f532f3279632c310e9d7809183f84974e2cd74a8/_support.scssc
+.sass-cache/*
 
 *.ids
 
 .idea/dataSources.local.xml
-
-.idea/dataSources.xml
-
-.idea/sqldialects.xml
 
 assets/css/Archive.zip
 
