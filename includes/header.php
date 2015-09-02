@@ -30,6 +30,7 @@ echo "}) \n</script>";
                         </span>
                             <?php
                                 // include the selected language dropdown menu
+                            if (isset($_SESSION["language"])) {
                                 switch ($_SESSION["language"]) {
                                     case "nl":
                                         include("includes/nederlands.php");
@@ -43,11 +44,13 @@ echo "}) \n</script>";
                                     default:
                                         include("includes/english.php");
                                 }
+                            }
                             ?>
                     </div>
                 </div>
             </div>
         </div>
+        <?php if (isset($_SESSION["language"])) { ?>
         <nav class="navbar navbar-default">
             <div class="container-fluid" id="nav">
                 <div class="navbar-header">
@@ -107,6 +110,7 @@ echo "}) \n</script>";
                 </div>
             </div>
         </nav>
+        <?php } ?>
     </div>
 </div>
 

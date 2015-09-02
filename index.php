@@ -16,9 +16,8 @@ switch (count($params)){
         if (!isset($_SESSION['language']))
         {
             //TODO: go to select language page
-            $_SESSION["language"] = "en";
+            $_SESSION["page"] = "start";
         }
-        $_SESSION["page"] = "home";
         break;
     case 1:
         $_SESSION["language"] = $params[0];
@@ -31,15 +30,17 @@ switch (count($params)){
 }
 // check for URL manipulations
 // verify if the [page].php file exists in "includes" folder
-if (!file_exists ("includes/" . $_SESSION["page"] . ".php")){
+if (isset($_SESSION["language"]) && !file_exists ("includes/" . $_SESSION["page"] . ".php")){
     session_unset();
     header("Location: /");
 }
 // verify if the language exists in the database
-$website = DAOFactory::getWebsiteDAO()->loadTagsByIDAndLanguage("header", $_SESSION["language"]);
-if (count($website->tags) == 0){
-    session_unset();
-    header("Location: /");
+if (isset($_SESSION["language"])){
+    $website = DAOFactory::getWebsiteDAO()->loadTagsByIDAndLanguage("header", $_SESSION["language"]);
+    if (count($website->tags) == 0){
+        session_unset();
+        header("Location: /");
+    }
 }
 
 ?>
@@ -103,7 +104,7 @@ if (count($website->tags) == 0){
         <!-- end content -->
 
         <!-- content -->
-        <?php include 'includes/modalTextEdit.php'; ?>
+        <?php if ($_SESSION["page"] != "start") include 'includes/modalTextEdit.php'; ?>
         <!-- end content -->
     </div>
     <div class="col-md-1 hidden-sm hidden-xs no-padding"></div>

@@ -185,11 +185,132 @@
 .dropdown .dropdown-toggle:hover {
   cursor: pointer;
 }
-.paragraph {
-  padding: 0 30px 0 30px;
-}
 .transparent {
   background: rgba(255, 255, 255, 0.9) !important;
+}
+.clear {
+  height: 0 !important;
+  line-height: 0 !important;
+  clear: both !important;
+  font-size: 1px !important;
+  margin: 0;
+  padding: 0;
+  float: none !important;
+}
+.img-label {
+  border: 1px black solid;
+  background: #F5F5DC;
+  font-size: 12px;
+}
+#img_start_bottom {
+  display: block;
+  margin: auto;
+  max-height: 300px;
+  width: 100%;
+}
+.img_row_valign {
+  width: 300px;
+  height: 300px;
+}
+.img_row_valign img {
+  width: 100%;
+  height: 100%;
+  margin: 0 auto;
+  display: block;
+}
+/* Advanced CSS hover styles */
+ul > li {
+  position: relative;
+  list-style: none;
+  font-size: 20px;
+}
+ul {
+  -webkit-padding-start: 0 !important;
+}
+ul span {
+  text-decoration: none;
+  display: block;
+}
+ul li img {
+  display: block;
+  position: relative;
+  z-index: -1;
+}
+/* IE8 fix, background colour appears behind img for uknown reason set negative z-index */
+ul li:not([class=na]) img {
+  position: static;
+}
+/* Reset relative position, as this plays havoc with good browsers */
+ul span:hover,
+ul span:focus {
+  display: block;
+  outline: none;
+  -moz-box-shadow: 3px 3px 5px #000;
+  -webkit-box-shadow: 3px 3px 5px #000;
+  box-shadow: 3px 3px 5px #000;
+}
+ul span:hover img,
+ul span:focus img {
+  outline: 3px solid #ccc;
+}
+ul span:hover:after,
+ul span:focus:after {
+  content: attr(data-hover-text);
+  color: #000;
+  position: absolute;
+  bottom: 0;
+  height: 30px;
+  line-height: 30px;
+  text-align: center;
+  font-weight: bold;
+  width: 100%;
+  background: #ffffff;
+  background: rgba(255, 255, 255, 0.7);
+  background: -moz-linear-gradient(top, rgba(255, 255, 255, 0.7), rgba(204, 204, 204, 0.7));
+  /* Firefox 3.6+ */
+  background: -webkit-gradient(linear, 0% 0%, 0% 100%, from(rgba(255, 255, 255, 0.7)), to(rgba(204, 204, 204, 0.7)));
+  /* Safari */
+  display: block;
+  text-shadow: 1px 1px 1px #fff;
+}
+ul span.reverse:hover:after,
+ul span.reverse:focus:after {
+  top: 0;
+  right: 0;
+}
+ul span.offset:hover:after,
+ul span.offset:focus:after {
+  top: 50%;
+  margin-top: -15px;
+}
+ul span.alternate01:hover:after,
+ul span.alternate01:focus:after {
+  top: 0;
+  width: 50%;
+  height: 100%;
+  line-height: normal;
+  text-align: left;
+  padding: 4px;
+  font-size: 12px;
+  -moz-box-sizing: border-box;
+  -webkit-box-sizing: border-box;
+  box-sizing: border-box;
+}
+/* Change colours */
+ul.highlight01 span:hover img,
+ul.highlight01 span:focus img {
+  outline-color: #1E528C;
+}
+ul.highlight01 span:hover:after,
+ul.highlight01 span:focus:after {
+  background: #1e528c;
+  background: rgba(30, 82, 140, 0.7);
+  background: -moz-linear-gradient(top, rgba(30, 82, 140, 0.7), rgba(43, 117, 200, 0.7));
+  /* Firefox 3.6+ */
+  background: -webkit-gradient(linear, 0% 0%, 0% 100%, from(rgba(30, 82, 140, 0.7)), to(rgba(43, 117, 200, 0.7)));
+  /* Safari */
+  color: #fff;
+  text-shadow: 1px 1px 1px #000;
 }
 /*! normalize.css v3.0.2 | MIT License | git.io/normalize */
 html {
