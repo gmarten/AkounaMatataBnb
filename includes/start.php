@@ -18,7 +18,7 @@
             <div class="col-md-3 col-xs-12 no-padding img_row_valign">
                 <ul class="highlight01">
                     <li>
-                        <span class="offset" data-hover-text="Click here to change image">
+                        <span class="offset editimage" data-hover-text="Click here to change image">
                             <img data-id="img_start_left" src="/assets/img/img_start_left.png" class="img-responsive imagedropshadow imageUploadFilename" id="img_start_left">
                         </span>
                     </li>
@@ -27,7 +27,7 @@
             <div class="col-md-3 col-xs-12 no-padding img_row_valign">
                 <ul class="highlight01">
                     <li>
-                        <span class="offset" data-hover-text="Click here to change image">
+                        <span class="offset editimage" data-hover-text="Click here to change image">
                             <img data-id="img_start_center_left" src="/assets/img/img_start_center_left.png" class="img-responsive imagedropshadow imageUploadFilename" id="img_start_center_left">
                         </span>
                     </li>
@@ -36,7 +36,7 @@
             <div class="col-md-3 col-xs-12 no-padding img_row_valign">
                 <ul class="highlight01">
                     <li>
-                        <span class="offset" data-hover-text="Click here to change image">
+                        <span class="offset editimage" data-hover-text="Click here to change image">
                             <img data-id="img_start_center_right" src="/assets/img/img_start_center_right.png" class="img-responsive imagedropshadow imageUploadFilename" id="img_start_center_right">
                         </span>
                     </li>
@@ -45,7 +45,7 @@
             <div class="col-md-3 col-xs-12 no-padding img_row_valign">
                 <ul class="highlight01">
                     <li>
-                        <span class="offset" data-hover-text="Click here to change image">
+                        <span class="offset editimage" data-hover-text="Click here to change image">
                             <img data-id="img_start_right" src="/assets/img/img_start_right.png" class="img-responsive imagedropshadow imageUploadFilename" id="img_start_right">
                         </span>
                     </li>
@@ -75,7 +75,7 @@
             <div class="col-md-12 col-xs-12">
                 <ul class="highlight01">
                     <li>
-                        <span class="offset" data-hover-text="Click here to change image">
+                        <span class="offset editimage" data-hover-text="Click here to change image">
                             <img data-id="img_start_bottom" src="/assets/img/img_start_bottom.png" class="img-responsive imagedropshadow imageUploadFilename" id="img_start_bottom">
                         </span>
                     </li>

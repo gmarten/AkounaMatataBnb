@@ -5,8 +5,6 @@
 
 *.ids
 
-.idea/dataSources.local.xml
-
 assets/css/Archive.zip
 
 blog/*

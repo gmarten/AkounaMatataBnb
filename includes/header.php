@@ -26,7 +26,7 @@ echo "}) \n</script>";
                     </div>
                     <div id="header-contact" class="col-md-8 col-xs-12 text-right no-padding">
                         <span class="hidden-sm hidden-xs">Bed &amp; Breakfast, Hogeweg 253, Mechelen 2800 | +32 495 25 53 65 |
-                            <a href="mailto:christina.vandalem@gmail.com">christina.vandalem@gmail.com</a>&nbsp;|
+                            <a href="mailto:christina.vandalem@gmail.com">christina.vandalem@gmail.com</a>
                         </span>
                             <?php
                                 // include the selected language dropdown menu

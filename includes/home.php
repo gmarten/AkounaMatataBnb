@@ -20,7 +20,7 @@ include 'filltags.php';
         <div class="col-md-4 col-xs-12 no-padding img_row_valign">
             <ul class="highlight01">
                 <li>
-                    <span class="offset" data-hover-text="Click here to change image">
+                    <span class="offset editimage" data-hover-text="Click here to change image">
                         <img data-id="img_main_left" src="/assets/img/img_main_left.png" class="img-responsive imagedropshadow imageUploadFilename" id="img_main_left">
                     </span>
                 </li>
@@ -29,7 +29,7 @@ include 'filltags.php';
         <div class="col-md-4 col-xs-12 no-padding img_row_valign">
             <ul class="highlight01">
                 <li>
-                    <span class="offset" data-hover-text="Click here to change image">
+                    <span class="offset editimage" data-hover-text="Click here to change image">
                         <img data-id="img_main_center" src="/assets/img/img_main_center.png" class="img-responsive imagedropshadow imageUploadFilename" id="img_main_center">
                     </span>
                 </li>
@@ -38,7 +38,7 @@ include 'filltags.php';
         <div class="col-md-4 col-xs-12 no-padding img_row_valign">
             <ul class="highlight01">
                 <li>
-                    <span class="offset" data-hover-text="Click here to change image">
+                    <span class="offset editimage" data-hover-text="Click here to change image">
                          <img data-id="img_main_right" src="/assets/img/img_main_right.png" class="img-responsive imagedropshadow imageUploadFilename" id="img_main_right">
                     </span>
                 </li>
